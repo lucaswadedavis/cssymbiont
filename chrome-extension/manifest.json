@@ -17,7 +17,7 @@
     [
     {
       "matches": ["*://*/*"],
-      "js": ["js/simple-storage.js","js/replacements.js"],
+      "js": ["js/simple-storage.js","js/injected.js"],
       "run_at": "document_end"
     }
   ]

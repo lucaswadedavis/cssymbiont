@@ -16,6 +16,7 @@ app.c.init=function(){
     simpleStorage.set("replacements",[]);
   }
   */
+  /*
   chrome.storage.sync.get(null,function(obj){
     if (!obj.replacements){
       obj.replacements = [];
@@ -23,6 +24,8 @@ app.c.init=function(){
         console.log("initial replacements set");
       });
     }
+    */
+  var obj = {replacements:[]};
   app.v.init(obj);
   app.v.listeners();
   });
@@ -37,25 +40,8 @@ app.v.init=function(state){
 
 app.v.listeners=function(){
   $("body").on("click","#add-another",function(){
-    $("#replacements").append(app.t.replacement() );
   });
 
-  $("body").on("click","#save",function(){
-
-    var s = [];
-    
-    $("#replacements div").each(function(){
-      var original =  $(this).children()[0].value;
-      var replacement = $(this).children()[1].value;
-
-      if (original && replacement){
-        s.push({original:original,replacement:replacement});
-      }
-    });
-    
-   // simpleStorage.set("replacements",s);
-    chrome.storage.sync.set({replacements:s},function(){console.log("saved!");});
-  });
 };
 
 //////////////////////////////
